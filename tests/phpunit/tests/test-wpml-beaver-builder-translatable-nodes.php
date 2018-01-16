@@ -14,7 +14,7 @@ class Test_WPML_Beaver_Builder_Translatable_Nodes extends OTGS_TestCase {
 
 		\WP_Mock::wpPassthruFunction( '__' );
 
-		$node_id = rand();
+		$node_id = mt_rand(1, 100);
 		$settings = (object) array( 'type' => $type, $field => rand_str() );
 
 		$subject = new WPML_Beaver_Builder_Translatable_Nodes();
@@ -41,8 +41,7 @@ class Test_WPML_Beaver_Builder_Translatable_Nodes extends OTGS_TestCase {
 	}
 
 	public function test_update() {
-
-		$node_id = rand();
+		$node_id = mt_rand(1, 100);
 		$settings = (object) array( 'type' => 'rich-text', 'text' => rand_str() );
 		$translation = rand_str();
 

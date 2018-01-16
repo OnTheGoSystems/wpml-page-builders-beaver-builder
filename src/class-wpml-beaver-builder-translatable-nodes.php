@@ -10,7 +10,7 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 
 	/**
 	 * @param string|int $node_id
-	 * @param obj $settings
+	 * @param stdClass $settings
 	 *
 	 * @return WPML_PB_String[]
 	 */
@@ -53,10 +53,10 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 
 	/**
 	 * @param string $node_id
-	 * @param array $settings
+	 * @param stdClass $settings
 	 * @param WPML_PB_String $string
 	 *
-	 * @return array
+	 * @return stdClass
 	 */
 	public function update( $node_id, $settings, WPML_PB_String $string ) {
 
@@ -89,7 +89,7 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 	/**
 	 * @param string $node_id
 	 * @param array $field
-	 * @param mixed $settings
+	 * @param stdClass $settings
 	 *
 	 * @return string
 	 */
@@ -99,7 +99,7 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 
 	/**
 	 * @param array $node_data
-	 * @param obj $settings
+	 * @param stdClass $settings
 	 *
 	 * @return bool
 	 */
