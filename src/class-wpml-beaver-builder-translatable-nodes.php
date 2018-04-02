@@ -336,6 +336,26 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 					),
 				),
 			),
+			'post-grid'      => array(
+				'conditions' => array( 'type' => 'post-grid' ),
+				'fields'     => array(
+					array(
+						'field'       => 'more_link_text',
+						'type'        => __( 'More Link Text', 'sitepress' ),
+						'editor_type' => 'LINE'
+					),
+					array(
+						'field'       => 'no_results_message',
+						'type'        => __( 'No Results Message', 'sitepress' ),
+						'editor_type' => 'VISUAL'
+					),
+					array(
+						'field'       => 'more_btn_text',
+						'type'        => __( 'Button Text', 'sitepress' ),
+						'editor_type' => 'LINE'
+					),
+				),
+			),
 
 		);
 
