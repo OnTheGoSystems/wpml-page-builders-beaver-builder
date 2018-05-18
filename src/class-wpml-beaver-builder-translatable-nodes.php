@@ -273,7 +273,7 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 					),
 				),
 			),
-			'call to action' => array(
+			'call-to-action' => array(
 				'conditions' => array( 'type' => 'cta' ),
 				'fields'     => array(
 					array(
