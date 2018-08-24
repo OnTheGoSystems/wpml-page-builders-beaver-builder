@@ -123,7 +123,7 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'     => array(
 					array(
 						'field'       => 'text',
-						'type'        => __( 'Text Editor', 'sitepress' ),
+						'type'        => __( 'Text Editor', 'wpml-string-translation' ),
 						'editor_type' => 'VISUAL'
 					),
 				),
@@ -133,7 +133,7 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'     => array(
 					array(
 						'field'       => 'html',
-						'type'        => __( 'HTML', 'sitepress' ),
+						'type'        => __( 'HTML', 'wpml-string-translation' ),
 						'editor_type' => 'VISUAL'
 					),
 				),
@@ -143,12 +143,12 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'     => array(
 					array(
 						'field'       => 'text',
-						'type'        => __( 'Button', 'sitepress' ),
+						'type'        => __( 'Button', 'wpml-string-translation' ),
 						'editor_type' => 'LINE'
 					),
 					array(
 						'field'       => 'link',
-						'type'        => __( 'Link', 'sitepress' ),
+						'type'        => __( 'Link', 'wpml-string-translation' ),
 						'editor_type' => 'LINK'
 					),
 				),
@@ -158,12 +158,12 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'     => array(
 					array(
 						'field'       => 'heading',
-						'type'        => __( 'Heading', 'sitepress' ),
+						'type'        => __( 'Heading', 'wpml-string-translation' ),
 						'editor_type' => 'LINE'
 					),
 					array(
 						'field'       => 'link',
-						'type'        => __( 'Link', 'sitepress' ),
+						'type'        => __( 'Link', 'wpml-string-translation' ),
 						'editor_type' => 'LINK'
 					),
 				),
@@ -173,22 +173,22 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'     => array(
 					array(
 						'field'       => 'title',
-						'type'        => __( 'Call to Action: Heading', 'sitepress' ),
+						'type'        => __( 'Call to Action: Heading', 'wpml-string-translation' ),
 						'editor_type' => 'LINE'
 					),
 					array(
 						'field'       => 'text',
-						'type'        => __( 'Call to Action: Text', 'sitepress' ),
+						'type'        => __( 'Call to Action: Text', 'wpml-string-translation' ),
 						'editor_type' => 'VISUAL'
 					),
 					array(
 						'field'       => 'btn_text',
-						'type'        => __( 'Call to Action: Button text', 'sitepress' ),
+						'type'        => __( 'Call to Action: Button text', 'wpml-string-translation' ),
 						'editor_type' => 'LINE'
 					),
 					array(
 						'field'       => 'btn_link',
-						'type'        => __( 'Call to Action: Button link', 'sitepress' ),
+						'type'        => __( 'Call to Action: Button link', 'wpml-string-translation' ),
 						'editor_type' => 'LINK'
 					),
 
@@ -199,12 +199,12 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'     => array(
 					array(
 						'field'       => 'text',
-						'type'        => __( 'Icon text', 'sitepress' ),
+						'type'        => __( 'Icon text', 'wpml-string-translation' ),
 						'editor_type' => 'VISUAL'
 					),
 					array(
 						'field'       => 'link',
-						'type'        => __( 'Link', 'sitepress' ),
+						'type'        => __( 'Link', 'wpml-string-translation' ),
 						'editor_type' => 'LINK'
 					),
 				),
@@ -214,22 +214,22 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'     => array(
 					array(
 						'field'       => 'title',
-						'type'        => __( 'Callout: Heading', 'sitepress' ),
+						'type'        => __( 'Callout: Heading', 'wpml-string-translation' ),
 						'editor_type' => 'LINE'
 					),
 					array(
 						'field'       => 'text',
-						'type'        => __( 'Callout: Text', 'sitepress' ),
+						'type'        => __( 'Callout: Text', 'wpml-string-translation' ),
 						'editor_type' => 'VISUAL'
 					),
 					array(
 						'field'       => 'cta_text',
-						'type'        => __( 'Callout: Call to action text', 'sitepress' ),
+						'type'        => __( 'Callout: Call to action text', 'wpml-string-translation' ),
 						'editor_type' => 'LINE'
 					),
 					array(
 						'field'       => 'link',
-						'type'        => __( 'Callout: Link', 'sitepress' ),
+						'type'        => __( 'Callout: Link', 'wpml-string-translation' ),
 						'editor_type' => 'LINK'
 					),
 				),
@@ -239,17 +239,17 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'     => array(
 					array(
 						'field'       => 'success_message',
-						'type'        => __( 'Contact Form: Success message', 'sitepress' ),
+						'type'        => __( 'Contact Form: Success message', 'wpml-string-translation' ),
 						'editor_type' => 'VISUAL'
 					),
 					array(
 						'field'       => 'btn_text',
-						'type'        => __( 'Contact Form: Button text', 'sitepress' ),
+						'type'        => __( 'Contact Form: Button text', 'wpml-string-translation' ),
 						'editor_type' => 'LINE'
 					),
 					array(
 						'field'       => 'success_url',
-						'type'        => __( 'Contact Form: Redirect link', 'sitepress' ),
+						'type'        => __( 'Contact Form: Redirect link', 'wpml-string-translation' ),
 						'editor_type' => 'LINK'
 					),
 				),
@@ -259,12 +259,12 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'     => array(
 					array(
 						'field'       => 'before_number_text',
-						'type'        => __( 'Number Counter: Text before number', 'sitepress' ),
+						'type'        => __( 'Number Counter: Text before number', 'wpml-string-translation' ),
 						'editor_type' => 'LINE'
 					),
 					array(
 						'field'       => 'after_number_text',
-						'type'        => __( 'Number Counter: Text after number', 'sitepress' ),
+						'type'        => __( 'Number Counter: Text after number', 'wpml-string-translation' ),
 						'editor_type' => 'LINE'
 					),
 				),
@@ -289,7 +289,7 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'            => array(
 					array(
 						'field'       => 'heading',
-						'type'        => __( 'Testimonial heading', 'sitepress' ),
+						'type'        => __( 'Testimonial heading', 'wpml-string-translation' ),
 						'editor_type' => 'LINE'
 					),
 
@@ -301,17 +301,17 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'     => array(
 					array(
 						'field'       => 'success_message',
-						'type'        => __( 'Subscribe form: Success message', 'sitepress' ),
+						'type'        => __( 'Subscribe form: Success message', 'wpml-string-translation' ),
 						'editor_type' => 'VISUAL'
 					),
 					array(
 						'field'       => 'btn_text',
-						'type'        => __( 'Subscribe form: Button text', 'sitepress' ),
+						'type'        => __( 'Subscribe form: Button text', 'wpml-string-translation' ),
 						'editor_type' => 'LINE'
 					),
 					array(
 						'field'       => 'success_url',
-						'type'        => __( 'Subscribe form: Redirect link', 'sitepress' ),
+						'type'        => __( 'Subscribe form: Redirect link', 'wpml-string-translation' ),
 						'editor_type' => 'LINK'
 					),
 				),
@@ -331,7 +331,7 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 				'fields'     => array(
 					array(
 						'field'       => 'link_url',
-						'type'        => __( 'Link', 'sitepress' ),
+						'type'        => __( 'Link', 'wpml-string-translation' ),
 						'editor_type' => 'LINK'
 					),
 				),

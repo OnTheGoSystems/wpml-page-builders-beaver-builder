@@ -5,10 +5,10 @@ class WPML_Beaver_Builder_Accordion extends WPML_Beaver_Builder_Module_With_Item
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'label':
-				return esc_html__( 'Accordion Item Label', 'sitepress' );
+				return esc_html__( 'Accordion Item Label', 'wpml-string-translation' );
 
 			case 'content':
-				return esc_html__( 'Accordion Item Content', 'sitepress' );
+				return esc_html__( 'Accordion Item Content', 'wpml-string-translation' );
 
 			default:
 				return '';
