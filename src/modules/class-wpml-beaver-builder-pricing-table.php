@@ -13,22 +13,22 @@ class WPML_Beaver_Builder_Pricing_Table extends WPML_Beaver_Builder_Module_With_
 	protected function get_title( $field ) {
 		switch ( $field ) {
 			case 'title':
-				return esc_html__( 'Pricing table: Title', 'wpml-string-translation' );
+				return esc_html__( 'Pricing table: Title', 'sitepress' );
 
 			case 'button_text':
-				return esc_html__( 'Pricing table: Button text', 'wpml-string-translation' );
+				return esc_html__( 'Pricing table: Button text', 'sitepress' );
 
 			case 'button_url':
-				return esc_html__( 'Pricing table: Button link', 'wpml-string-translation' );
+				return esc_html__( 'Pricing table: Button link', 'sitepress' );
 
 			case 'features':
-				return esc_html__( 'Pricing table: Feature', 'wpml-string-translation' );
+				return esc_html__( 'Pricing table: Feature', 'sitepress' );
 
 			case 'price':
-				return esc_html__( 'Pricing table: Price', 'wpml-string-translation' );
+				return esc_html__( 'Pricing table: Price', 'sitepress' );
 
 			case 'duration':
-				return esc_html__( 'Pricing table: Duration', 'wpml-string-translation' );
+				return esc_html__( 'Pricing table: Duration', 'sitepress' );
 
 			default:
 				return '';

@@ -13,7 +13,7 @@ class WPML_Beaver_Builder_Icon_Group extends WPML_Beaver_Builder_Module_With_Ite
 	protected function get_title( $field ) {
 		switch ( $field ) {
 			case 'link':
-				return esc_html__( 'Icon link', 'wpml-string-translation' );
+				return esc_html__( 'Icon link', 'sitepress' );
 
 			default:
 				return '';

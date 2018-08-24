@@ -13,16 +13,16 @@ class WPML_Beaver_Builder_Content_Slider extends WPML_Beaver_Builder_Module_With
 	protected function get_title( $field ) {
 		switch( $field ) {
 			case 'title':
-				return esc_html__( 'Content Slider: Slide heading', 'wpml-string-translation' );
+				return esc_html__( 'Content Slider: Slide heading', 'sitepress' );
 
 			case 'text':
-				return esc_html__( 'Content Slider: Slide content', 'wpml-string-translation' );
+				return esc_html__( 'Content Slider: Slide content', 'sitepress' );
 
 			case 'cta_text':
-				return esc_html__( 'Content Slider: Slide call to action text', 'wpml-string-translation' );
+				return esc_html__( 'Content Slider: Slide call to action text', 'sitepress' );
 
 			case 'link':
-				return esc_html__( 'Content Slider: Slide call to action link', 'wpml-string-translation' );
+				return esc_html__( 'Content Slider: Slide call to action link', 'sitepress' );
 
 			default:
 				return '';
