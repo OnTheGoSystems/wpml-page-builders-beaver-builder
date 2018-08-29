@@ -7,6 +7,7 @@ class WPML_Beaver_Builder_Integration_Factory {
 		$action_filter_loader->load(
 			array(
 				'WPML_PB_Beaver_Builder_Handle_Custom_Fields_Factory',
+				'WPML_Beaver_Builder_Media_Hooks_Factory',
 			)
 		);
 
