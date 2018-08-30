@@ -47,7 +47,7 @@ class Test_WPML_Beaver_Builder_Media_Hooks extends OTGS_TestCase {
 		$this->assertCount( 2, $filtered_updaters );
 		$this->assertSame( $updaters['some-plugin'], $filtered_updaters['some-plugin'] );
 		$this->assertInstanceOf(
-			'WPML_Beaver_Builder_Update_Media',
+			'WPML_Page_Builders_Update_Media',
 			$filtered_updaters[ WPML_Beaver_Builder_Media_Hooks::KEY ]
 		);
 	}

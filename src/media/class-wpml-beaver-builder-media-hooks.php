@@ -33,11 +33,12 @@ class WPML_Beaver_Builder_Media_Hooks implements IWPML_Action {
 		return $updaters;
 	}
 
-	/** @return WPML_Beaver_Builder_Update_Media */
+	/** @return WPML_Page_Builders_Update_Media */
 	private function create_media_updater() {
-		return new WPML_Beaver_Builder_Update_Media(
+		return new WPML_Page_Builders_Update_Media(
 			new WPML_Page_Builders_Update( new WPML_Beaver_Builder_Data_Settings() ),
-			new WPML_Translation_Element_Factory( $this->sitepress )
+			new WPML_Translation_Element_Factory( $this->sitepress ),
+			new WPML_Beaver_Builder_Media_Node_Iterator( new WPML_Beaver_Builder_Media_Node_Provider() )
 		);
 	}
 }
