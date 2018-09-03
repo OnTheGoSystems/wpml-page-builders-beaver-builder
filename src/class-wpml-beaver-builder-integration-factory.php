@@ -2,6 +2,8 @@
 
 class WPML_Beaver_Builder_Integration_Factory {
 
+	const SLUG = 'beaver-builder';
+
 	public function create() {
 		$action_filter_loader = new WPML_Action_Filter_Loader();
 		$action_filter_loader->load(
