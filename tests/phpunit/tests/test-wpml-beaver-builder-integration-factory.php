@@ -19,15 +19,23 @@ class Test_WPML_Beaver_Builder_Integration_Factory extends OTGS_TestCase {
 
 		$bb_factory = new WPML_Beaver_Builder_Integration_Factory();
 
-		$absolute_links = \Mockery::mock('overload:AbsoluteLinks');
-		$absolute_to_permalinks = \Mockery::mock('overload:WPML_Absolute_To_Permalinks');
-		$translate_link_targets = \Mockery::mock('overload:WPML_Translate_Link_Targets');
-		$string_registration = \Mockery::mock('overload:WPML_PB_String_Registration');
-		$hooks_strategy = \Mockery::mock('overload:WPML_PB_API_Hooks_Strategy');
-		$string_factory = \Mockery::mock('overload:WPML_ST_String_Factory');
+		$action_loader = \Mockery::mock('overload:WPML_Action_Filter_Loader');
+		$action_loader->shouldReceive( 'load' )->with(
+			array(
+				'WPML_PB_Beaver_Builder_Handle_Custom_Fields_Factory',
+				'WPML_Beaver_Builder_Media_Hooks_Factory',
+			)
+		);
 
+		\Mockery::mock('overload:AbsoluteLinks');
+		\Mockery::mock('overload:WPML_Absolute_To_Permalinks');
+		\Mockery::mock('overload:WPML_Translate_Link_Targets');
+		\Mockery::mock('overload:WPML_PB_API_Hooks_Strategy');
+		\Mockery::mock('overload:WPML_ST_String_Factory');
+
+		$string_registration = \Mockery::mock('overload:WPML_PB_String_Registration');
 		$factory = \Mockery::mock('overload:WPML_String_Registration_Factory');
-		$factory->shouldReceive('create')->andReturn($string_registration);
+		$factory->shouldReceive( 'create' )->andReturn( $string_registration );
 
 		$sitepress = $this->getMockBuilder( 'SitePress' )
 			->setMethods( array( 'get_active_languages' ) )
