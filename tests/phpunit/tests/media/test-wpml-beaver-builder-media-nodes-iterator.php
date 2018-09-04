@@ -3,7 +3,7 @@
 /**
  * @group media
  */
-class Test_WPML_Beaver_Builder_Media_Node_Iterator extends OTGS_TestCase {
+class Test_WPML_Beaver_Builder_Media_Nodes_Iterator extends OTGS_TestCase {
 
 	/**
 	 * @test
@@ -96,7 +96,7 @@ class Test_WPML_Beaver_Builder_Media_Node_Iterator extends OTGS_TestCase {
 	}
 
 	private function get_subject( $node_provider ) {
-		return new WPML_Beaver_Builder_Media_Node_Iterator( $node_provider );
+		return new WPML_Beaver_Builder_Media_Nodes_Iterator( $node_provider );
 	}
 
 	private function get_node_provider() {
@@ -110,6 +110,6 @@ class Test_WPML_Beaver_Builder_Media_Node_Iterator extends OTGS_TestCase {
 	}
 }
 
-if ( ! interface_exists( 'IWPML_PB_Media_Node_Iterator' ) ) {
-	interface IWPML_PB_Media_Node_Iterator {}
+if ( ! interface_exists( 'IWPML_PB_Media_Nodes_Iterator' ) ) {
+	interface IWPML_PB_Media_Nodes_Iterator {}
 }

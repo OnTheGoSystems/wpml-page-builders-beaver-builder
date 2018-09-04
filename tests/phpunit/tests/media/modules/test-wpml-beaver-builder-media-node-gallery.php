@@ -55,10 +55,10 @@ class Test_WPML_Beaver_Builder_Media_Node_Gallery extends OTGS_TestCase {
 			),
 		));
 
-		$translate_helper = $this->get_translate_helper();
-		$translate_helper->method( 'translate_id' )->with( $original_id, $target_lang )->willReturn( $translated_id );
+		$media_translate = $this->get_media_translate();
+		$media_translate->method( 'translate_id' )->with( $original_id, $target_lang )->willReturn( $translated_id );
 
-		$subject = $this->get_subject( $translate_helper );
+		$subject = $this->get_subject( $media_translate );
 
 		$this->assertEquals( $expected_node, $subject->translate( $node, $source_lang, $target_lang ) );
 	}
@@ -86,20 +86,20 @@ class Test_WPML_Beaver_Builder_Media_Node_Gallery extends OTGS_TestCase {
 			),
 		);
 
-		$translate_helper = $this->get_translate_helper();
-		$translate_helper->method( 'translate_id' )->with( $original_id, $target_lang )->willReturn( $original_id );
+		$media_translate = $this->get_media_translate();
+		$media_translate->method( 'translate_id' )->with( $original_id, $target_lang )->willReturn( $original_id );
 
-		$subject = $this->get_subject( $translate_helper );
+		$subject = $this->get_subject( $media_translate );
 
 		$this->assertEquals( $node, $subject->translate( $node, $source_lang, $target_lang ) );
 	}
 
-	private function get_subject( $translate_helper ) {
-		return new WPML_Beaver_Builder_Media_Node_Gallery( $translate_helper );
+	private function get_subject( $media_translate ) {
+		return new WPML_Beaver_Builder_Media_Node_Gallery( $media_translate );
 	}
 
-	private function get_translate_helper() {
-		return $this->getMockBuilder( 'WPML_Page_Builders_Media_Translate_Helper' )
+	private function get_media_translate() {
+		return $this->getMockBuilder( 'WPML_Page_Builders_Media_Translate' )
 		            ->setMethods( array( 'translate_id', 'translate_image_url' ) )
 		            ->disableOriginalConstructor()->getMock();
 	}

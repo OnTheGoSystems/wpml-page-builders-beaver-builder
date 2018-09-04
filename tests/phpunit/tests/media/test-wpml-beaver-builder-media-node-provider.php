@@ -30,7 +30,7 @@ class Test_WPML_Beaver_Builder_Media_Node_Provider extends OTGS_TestCase {
 	}
 
 	private function mock_external_classes() {
-		$this->getMockBuilder( 'WPML_Page_Builders_Media_Translate_Helper' )->getMock();
+		$this->getMockBuilder( 'WPML_Page_Builders_Media_Translate' )->getMock();
 		$this->getMockBuilder( 'WPML_Translation_Element_Factory' )->getMock();
 		$this->getMockBuilder( 'WPML_Media_Image_Translate' )->getMock();
 		$this->getMockBuilder( 'WPML_Media_Attachment_By_URL_Factory' )->getMock();

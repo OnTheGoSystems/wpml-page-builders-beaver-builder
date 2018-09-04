@@ -1,6 +1,6 @@
 <?php
 
-class WPML_Beaver_Builder_Media_Node_Iterator implements IWPML_PB_Media_Node_Iterator {
+class WPML_Beaver_Builder_Media_Nodes_Iterator implements IWPML_PB_Media_Nodes_Iterator {
 
 	/** @var WPML_Beaver_Builder_Media_Node_Provider $node_provider */
 	private $node_provider;
