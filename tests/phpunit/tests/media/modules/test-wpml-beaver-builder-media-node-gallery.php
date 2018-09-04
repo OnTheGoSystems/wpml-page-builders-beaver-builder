@@ -60,7 +60,7 @@ class Test_WPML_Beaver_Builder_Media_Node_Gallery extends OTGS_TestCase {
 
 		$subject = $this->get_subject( $media_translate );
 
-		$this->assertEquals( $expected_node, $subject->translate( $node, $source_lang, $target_lang ) );
+		$this->assertEquals( $expected_node, $subject->translate( $node, $target_lang, $source_lang ) );
 	}
 
 	/**
@@ -91,7 +91,7 @@ class Test_WPML_Beaver_Builder_Media_Node_Gallery extends OTGS_TestCase {
 
 		$subject = $this->get_subject( $media_translate );
 
-		$this->assertEquals( $node, $subject->translate( $node, $source_lang, $target_lang ) );
+		$this->assertEquals( $node, $subject->translate( $node, $target_lang, $source_lang ) );
 	}
 
 	private function get_subject( $media_translate ) {

@@ -38,11 +38,11 @@ class Test_WPML_Beaver_Builder_Media_Node_Photo extends OTGS_TestCase {
 		$media_translate = $this->get_media_translate();
 		$media_translate->method( 'translate_id' )->with( $original_id, $target_lang )->willReturn( $translated_id );
 		$media_translate->method( 'translate_image_url' )
-		                 ->with( $original_url, $source_lang, $target_lang )->willReturn( $translated_url );
+		                 ->with( $original_url, $target_lang, $source_lang )->willReturn( $translated_url );
 
 		$subject = $this->get_subject( $media_translate );
 
-		$this->assertEquals( $expected_node, $subject->translate( $node, $source_lang, $target_lang ) );
+		$this->assertEquals( $expected_node, $subject->translate( $node, $target_lang, $source_lang ) );
 	}
 
 	/**
@@ -67,7 +67,7 @@ class Test_WPML_Beaver_Builder_Media_Node_Photo extends OTGS_TestCase {
 
 		$subject = $this->get_subject( $media_translate );
 
-		$this->assertEquals( $node, $subject->translate( $node, $source_lang, $target_lang ) );
+		$this->assertEquals( $node, $subject->translate( $node, $target_lang, $source_lang ) );
 	}
 
 	private function get_subject( $media_translate ) {

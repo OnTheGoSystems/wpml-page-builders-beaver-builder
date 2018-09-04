@@ -2,7 +2,7 @@
 
 class WPML_Beaver_Builder_Media_Node_Gallery extends WPML_Beaver_Builder_Media_Node {
 
-	public function translate( $node_data, $source_lang, $target_lang ) {
+	public function translate( $node_data, $target_lang, $source_lang ) {
 		foreach ( $node_data->photos as &$photo ) {
 			$photo = $this->media_translate->translate_id( $photo, $target_lang );
 		}
