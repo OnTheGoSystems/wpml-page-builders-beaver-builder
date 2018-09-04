@@ -9,5 +9,5 @@ abstract class WPML_Beaver_Builder_Media_Node {
 		$this->media_translate = $media_translate;
 	}
 
-	abstract function translate( $node_data, $source_lang, $target_lang );
+	abstract function translate( $node_data, $target_lang, $source_lang );
 }

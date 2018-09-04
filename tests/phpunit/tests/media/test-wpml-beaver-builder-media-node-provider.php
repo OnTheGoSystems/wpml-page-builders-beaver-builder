@@ -24,8 +24,10 @@ class Test_WPML_Beaver_Builder_Media_Node_Provider extends OTGS_TestCase {
 
 	public function dp_node_types() {
 		return array(
-			'photo'   => array( 'photo', 'WPML_Beaver_Builder_Media_Node_Photo' ),
-			'gallery' => array( 'gallery', 'WPML_Beaver_Builder_Media_Node_Gallery' ),
+			'photo'          => array( 'photo', 'WPML_Beaver_Builder_Media_Node_Photo' ),
+			'gallery'        => array( 'gallery', 'WPML_Beaver_Builder_Media_Node_Gallery' ),
+			'content-slider' => array( 'content-slider', 'WPML_Beaver_Builder_Media_Node_Content_Slider' ),
+			'slideshow'      => array( 'slideshow', 'WPML_Beaver_Builder_Media_Node_Slideshow' ),
 		);
 	}
 
