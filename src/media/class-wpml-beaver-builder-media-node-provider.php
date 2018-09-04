@@ -24,6 +24,14 @@ class WPML_Beaver_Builder_Media_Node_Provider {
 					$node = new WPML_Beaver_Builder_Media_Node_Gallery( $this->get_media_translate() );
 					break;
 
+				case 'content-slider':
+					$node = new WPML_Beaver_Builder_Media_Node_Content_Slider( $this->get_media_translate() );
+					break;
+
+				case 'slideshow':
+					$node = new WPML_Beaver_Builder_Media_Node_Slideshow( $this->get_media_translate() );
+					break;
+
 				default:
 					$node = null;
 			}
