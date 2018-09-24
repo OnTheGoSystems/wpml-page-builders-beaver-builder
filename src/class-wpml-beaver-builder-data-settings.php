@@ -56,4 +56,11 @@ class WPML_Beaver_Builder_Data_Settings implements IWPML_Page_Builders_Data_Sett
 	}
 
 	public function add_hooks(){}
+
+	/**
+	 * @return bool
+	 */
+	public function should_copy_post_body() {
+		return false;
+	}
 }
