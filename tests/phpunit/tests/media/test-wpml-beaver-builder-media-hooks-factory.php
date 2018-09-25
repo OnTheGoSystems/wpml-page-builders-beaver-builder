@@ -7,6 +7,16 @@ class Test_WPML_Beaver_Builder_Media_Hooks_Factory extends OTGS_TestCase {
 
 	/**
 	 * @test
+	 * @group wpmlmedia-550
+	 */
+	public function it_should_load_on_backend_and_frontend() {
+		$subject = new WPML_Beaver_Builder_Media_Hooks_Factory();
+		$this->assertInstanceOf( 'IWPML_Backend_Action_Loader', $subject );
+		$this->assertInstanceOf( 'IWPML_Frontend_Action_Loader', $subject );
+	}
+
+	/**
+	 * @test
 	 */
 	public function it_should_create_and_return_an_instance() {
 		$GLOBALS['sitepress'] = $this->getMockBuilder( 'SitePress' )->getMock();
