@@ -22,6 +22,7 @@ class Test_WPML_Beaver_Builder_Update_Media_Factory extends OTGS_TestCase {
 	 * @test
 	 */
 	public function it_should_return_an_instance_of_page_builders_media_update() {
+		$this->getMockBuilder( 'WPML_Media_Usage_Factory' )->getMock();
 		$subject = new WPML_Beaver_Builder_Update_Media_Factory();
 		$this->assertInstanceOf( 'WPML_Page_Builders_Update_Media', $subject->create() );
 	}
