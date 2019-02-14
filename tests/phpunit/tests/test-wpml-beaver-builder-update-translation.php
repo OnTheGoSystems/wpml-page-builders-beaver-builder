@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Test_WPML_Beaver_Builder_Translatable_Nodes
+ * Class Test_WPML_Beaver_Builder_Update_Translations
  * @group page-builders
  * @group beaver-builder
  */
