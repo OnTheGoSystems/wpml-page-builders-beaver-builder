@@ -11,11 +11,15 @@ class Test_WPML_Beaver_Builder_Translatable_Nodes extends OTGS_TestCase {
 	 * @dataProvider node_data_provider
 	 */
 	public function test_get( $type, $field, $expected_title, $expected_editor_type ) {
+		$wrap_tag = 'h2';
 
 		\WP_Mock::wpPassthruFunction( '__' );
 
 		$node_id  = mt_rand( 1, 100 );
 		$settings = (object) array( 'type' => $type, $field => rand_str() );
+		if ( 'heading' === $type ) {
+			$settings->tag = $wrap_tag;
+		}
 
 		$subject = new WPML_Beaver_Builder_Translatable_Nodes();
 		$strings = $subject->get( $node_id, $settings );
@@ -25,6 +29,9 @@ class Test_WPML_Beaver_Builder_Translatable_Nodes extends OTGS_TestCase {
 		$this->assertEquals( $field . '-' . $settings->type . '-' . $node_id, $string->get_name() );
 		$this->assertEquals( $expected_title, $string->get_title() );
 		$this->assertEquals( $expected_editor_type, $string->get_editor_type() );
+		if ( 'heading' === $type ) {
+			$this->assertEquals( $wrap_tag, $string->get_wrap_tag() );
+		}
 	}
 
 	public function node_data_provider() {

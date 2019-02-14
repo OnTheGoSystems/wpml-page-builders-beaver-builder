@@ -51,7 +51,9 @@ class Test_WPML_Beaver_Builder_Register_Stings extends WPML_PB_TestCase2 {
 			                         $string->get_value(),
 			                         $string->get_editor_type(),
 			                         $string->get_title(),
-			                         $string->get_name()
+			                         $string->get_name(),
+			                         0,
+			                         $string->get_wrap_tag()
 		                         );
 
 		$data_settings = $this->get_data_settings( $beaver_builder_field_data );

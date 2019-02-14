@@ -32,7 +32,8 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 							$settings->$field_key,
 							$this->get_string_name( $node_id, $field, $settings ),
 							$field['type'],
-							$field['editor_type']
+							$field['editor_type'],
+							$this->get_wrap_tag( $settings )
 						);
 
 						$strings[] = $string;
@@ -95,6 +96,24 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 	 */
 	public function get_string_name( $node_id, $field, $settings ) {
 		return $field['field'] . '-' . $settings->type . '-' . $node_id;
+	}
+
+	/**
+	 * Get wrap tag for string.
+	 * Used for SEO, can contain (h1...h6, etc.)
+	 *
+	 * @param stdClass $settings Field settings.
+	 *
+	 * @return string
+	 */
+	private function get_wrap_tag( $settings ) {
+		if ( isset( $settings->type ) && 'heading' === $settings->type ) {
+			if ( isset( $settings->tag ) ) {
+				return $settings->tag;
+			}
+		}
+
+		return '';
 	}
 
 	/**
