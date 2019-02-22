@@ -135,10 +135,8 @@ class WPML_Beaver_Builder_Translatable_Nodes implements IWPML_Page_Builders_Tran
 	 * @return string
 	 */
 	private function get_wrap_tag( $settings ) {
-		if ( isset( $settings->type ) && 'heading' === $settings->type ) {
-			if ( isset( $settings->tag ) ) {
+		if ( isset( $settings->type ) && 'heading' === $settings->type && isset( $settings->tag ) ) {
 				return $settings->tag;
-			}
 		}
 
 		return '';
