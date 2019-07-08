@@ -4,6 +4,7 @@
  * Class Test_WPML_Beaver_Builder_Register_Strings
  * @group page-builders
  * @group beaver-builder
+ * @group wpmlcore-6732
  */
 class Test_WPML_Beaver_Builder_Register_Stings extends WPML_PB_TestCase2 {
 
@@ -52,7 +53,7 @@ class Test_WPML_Beaver_Builder_Register_Stings extends WPML_PB_TestCase2 {
 			                         $string->get_editor_type(),
 			                         $string->get_title(),
 			                         $string->get_name(),
-			                         0,
+			                         1,
 			                         $string->get_wrap_tag()
 		                         );
 
