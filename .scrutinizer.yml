@@ -4,62 +4,62 @@ checks:
         code_rating: true
         duplication: true
 filter:
-    excluded_paths:
-        - "tests/"
-        - "vendor/"
+  excluded_paths:
+    - "tests/"
+    - "vendor/"
 coding_style:
-    php:
-        indentation:
-            general:
-                use_tabs: true
-        spaces:
-            around_operators:
-                concatenation: true
-                negation: true
+  php:
+    indentation:
+      general:
+        use_tabs: true
+    spaces:
+      around_operators:
+        concatenation: true
+        negation: true
 
 build:
-    cache:
-        directories:
-            - vendor/
-    nodes:
-        phpcs:
-            environment:
-                php: 7.3
-            tests:
-                override:
-                    - on_node: 1
-                      idle_timeout: 4800
-                      command: "phpcs-run ./"
-
-        php56:
-            environment:
-                php: 5.6
-        php70:
-            environment:
-                php: 7.0
-        php71:
-            environment:
-                php: 7.1
-        php72:
-            environment:
-                php: 7.2
-
-        php73-cover:
-            environment:
-                php: 7.3
-            tests:
-                override:
-                    - on_node: 2
-                      idle_timeout: 4800
-                      command: "./vendor/bin/phpunit --fail-on-warning --coverage-clover ./coverage.xml"
-                      coverage:
-                          file: ./coverage.xml
-                          format: php-clover
-    tests:
+  cache:
+    directories:
+      - vendor/
+  nodes:
+    phpcs:
+      environment:
+        php: 7.3
+      tests:
         override:
-            - on_node: 1
-              idle_timeout: 4800
-              command: "./vendor/bin/phpunit"
+          - on_node: 1
+            idle_timeout: 4800
+            command: "phpcs-run ./"
+
+    php56:
+      environment:
+        php: 5.6
+    php70:
+      environment:
+        php: 7.0
+    php71:
+      environment:
+        php: 7.1
+    php72:
+      environment:
+        php: 7.2
+
+    php73-cover:
+      environment:
+        php: 7.3
+      tests:
+        override:
+          - on_node: 2
+            idle_timeout: 4800
+            command: "./vendor/bin/phpunit --fail-on-warning --coverage-clover ./coverage.xml"
+            coverage:
+              file: ./coverage.xml
+              format: php-clover
+  tests:
+    override:
+      - on_node: 1
+        idle_timeout: 4800
+        command: "./vendor/bin/phpunit"
 
 build_failure_conditions:
-    - 'project.metric_change("scrutinizer.test_coverage", < 0)'
+  - 'project.metric_change("scrutinizer.test_coverage", < 0)'
