@@ -49,17 +49,38 @@ class Test_WPML_Beaver_Builder_Data_Settings extends OTGS_TestCase {
 
 	/**
 	 * @test
+	 * @group wpmlcore-6774
 	 */
 	public function it_prepares_data_for_saving() {
-		$data = array(
-			'id' => mt_rand(),
-			'something' => rand_str( 10 ),
-		);
+		$data = [
+			'gt5s65g365' => (object) [
+				'node'     => 'gt5s65g365',
+				'settings' => (object) [
+					'text' => 'My text in object',
+					'data' => [
+						'text1' => 'My text in array',
+					]
+				]
+			]
+		];
 
-		\WP_Mock::wpFunction( 'wp_json_encode', array(
-			'args'   => array( $data ),
-			'return' => json_encode( $data ),
-		) );
+		\WP_Mock::userFunction( 'wp_slash', [
+			'times'      => 1,
+			'args'       => [ 'gt5s65g365' ],
+			'return_arg' => true,
+		] );
+
+		\WP_Mock::userFunction( 'wp_slash', [
+			'times'      => '1+',
+			'args'       => [ 'My text in object' ],
+			'return_arg' => true,
+		] );
+
+		\WP_Mock::userFunction( 'wp_slash', [
+			'times'      => 1,
+			'args'       => [ 'My text in array' ],
+			'return_arg' => true,
+		] );
 
 		$subject = new WPML_Beaver_Builder_Data_Settings();
 		$this->assertEquals( $data, $subject->prepare_data_for_saving( $data ) );
