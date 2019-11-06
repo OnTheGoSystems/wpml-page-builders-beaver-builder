@@ -9,6 +9,12 @@
       "email": "hello@wpml.org"
     }
   ],
+  "repositories": {
+    "collect": {
+      "type": "vcs",
+      "url": "https://github.com/OnTheGoSystems/collect.git"
+    }
+  },
   "autoload": {
     "classmap": [
       "src/"
@@ -25,6 +31,7 @@
   "require-dev": {
     "phpunit/phpunit": "~5.7",
     "otgs/unit-tests-framework": "~1.2.0",
-    "wpml/page-builders": "dev-develop"
+    "wpml/page-builders": "dev-develop",
+    "wpml/collect": "dev-wpml-collect-rename"
   }
 }

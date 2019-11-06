@@ -36,5 +36,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', realpath( WPML_ST_PATH . '/../../../' ) );
 }
 
+require_once __DIR__ . '/stubs/wpml-interfaces.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../vendor/otgs/unit-tests-framework/phpunit/bootstrap.php';
