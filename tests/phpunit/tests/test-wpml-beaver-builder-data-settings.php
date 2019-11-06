@@ -103,4 +103,34 @@ class Test_WPML_Beaver_Builder_Data_Settings extends OTGS_TestCase {
 		$subject = new WPML_Beaver_Builder_Data_Settings();
 		$this->assertEquals( $fields_to_copy, $subject->get_fields_to_save() );
 	}
+
+	/**
+	 * @test
+	 * @dataProvider dpShouldReturnIsHandlingPost
+	 *
+	 * @group wpmlcore-6929
+	 *
+	 * @param mixed $beaverBuilderEnabled
+	 * @param bool  $expectedResult
+	 */
+	public function itShouldReturnIsHandlingPost( $beaverBuilderEnabled, $expectedResult ) {
+		$postId = 123;
+
+		\WP_Mock::userFunction( 'get_post_meta', [
+			'args'   => [ $postId, '_fl_builder_enabled', true ],
+			'return' => $beaverBuilderEnabled,
+		] );
+
+		$subject = new WPML_Beaver_Builder_Data_Settings();
+
+		$this->assertSame( $expectedResult, $subject->is_handling_post( $postId ) );
+	}
+
+	public function dpShouldReturnIsHandlingPost() {
+		return [
+			'with beaver builder enabled #1' => [ '1', true ],
+			'with beaver builder enabled #2' => [ 1, true ],
+			'with beaver builder disabled'   => [ '', false ],
+		];
+	}
 }
