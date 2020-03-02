@@ -15,7 +15,7 @@ class WPML_Beaver_Builder_Register_Strings extends WPML_Page_Builders_Register_S
 				$data = $this->sort_modules_before_string_registration( $data );
 				$this->register_strings_for_modules( $data, $package );
 			} elseif ( is_object( $data ) ) {
-				if ( isset( $data->type ) && 'module' === $data->type ) {
+				if ( isset( $data->type ) && 'module' === $data->type && ! $this->is_embedded_global_module( $data ) ) {
 					$this->register_strings_for_node( $data->node, $data->settings, $package );
 				}
 			}
@@ -83,5 +83,14 @@ class WPML_Beaver_Builder_Register_Strings extends WPML_Page_Builders_Register_S
 	 */
 	private function sort_modules_by_position_only( stdClass $a, stdClass $b ) {
 		return ( (int) $a->position < (int) $b->position ) ? -1 : 1;
+	}
+
+	/**
+	 * @param object $data
+	 *
+	 * @return bool
+	 */
+	private function is_embedded_global_module( $data ) {
+		return ! empty( $data->template_node_id ) && $data->template_node_id !== $data->node;
 	}
 }
