@@ -110,7 +110,7 @@ class Test_WPML_Beaver_Builder_Register_Stings extends WPML_PB_TestCase2 {
 	 * @test
 	 * @group wpmlcore-6435
 	 */
-	public function it_should_register_strings_from_global_modules() {
+	public function it_should_register_strings_from_global_module_created_independently() {
 		list( , $post, $package ) = $this->get_post_and_package( 'Beaver builder' );
 
 		$node_id  = 'some_node_id';
@@ -125,6 +125,65 @@ class Test_WPML_Beaver_Builder_Register_Stings extends WPML_PB_TestCase2 {
 					'node'             => $node_id,
 					'parent'           => null,
 					'template_node_id' => $node_id,
+				],
+			]
+		];
+
+		\WP_Mock::wpFunction( 'get_post_meta', array(
+			'times'  => 1,
+			'args'   => [ $post->ID, '_fl_builder_data', false ],
+			'return' => $beaver_builder_field_data,
+		) );
+
+		$translatable_nodes = $this->getMockBuilder( WPML_Beaver_Builder_Translatable_Nodes::class )
+			->setMethods( [ 'get' ] )
+			->disableOriginalConstructor()->getMock();
+		$translatable_nodes->expects( $this->once() )
+			->method( 'get' )
+			->with( $node_id, $settings )
+			->willReturn( [ $string ] );
+
+		$string_registration_mock = \Mockery::mock( 'WPML_PB_String_Registration' );
+		$string_registration_mock->shouldReceive( 'register_string' )
+			->once()
+			->with(
+				$post->ID,
+				$string->get_value(),
+				$string->get_editor_type(),
+				$string->get_title(),
+				$string->get_name(),
+				1,
+				$string->get_wrap_tag()
+			);
+
+		$data_settings = $this->get_data_settings( $beaver_builder_field_data );
+
+		$subject = new WPML_Beaver_Builder_Register_Strings( $translatable_nodes, $data_settings, $string_registration_mock );
+		$subject->register_strings( $post, $package );
+	}
+
+	/**
+	 * @test
+	 * @group wpmlcore-6435
+	 * @group wpmlcore-7138
+	 */
+	public function it_should_register_strings_from_global_module_saved_from_an_page_edited_with_BB() {
+		list( , $post, $package ) = $this->get_post_and_package( 'Beaver builder' );
+
+		$node_id   = 'some_node_id';
+		$parent_id = "another_node_id";
+		$settings  = [ rand_str() => rand_str() ];
+		$string    = new WPML_PB_String( rand_str(), rand_str(), rand_str(), rand_str() );
+
+		$beaver_builder_field_data = [
+			[
+				(object) [
+					'type'             => 'module',
+					'settings'         => $settings,
+					'node'             => $node_id,
+					'parent'           => $parent_id,
+					// In that case, the "template_node_id" key does not exist,
+					// but we have parent node id which is not attached to anything here.
 				],
 			]
 		];
