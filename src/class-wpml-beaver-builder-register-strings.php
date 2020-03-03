@@ -31,8 +31,12 @@ class WPML_Beaver_Builder_Register_Strings extends WPML_Page_Builders_Register_S
 	 * @return array
 	 */
 	private function sort_modules_before_string_registration( array $modules ) {
-		uasort( $modules, array( $this, 'sort_modules_by_position_only' ) );
-		return $this->sort_modules_by_parent_and_child( $modules );
+		if ( count( $modules ) > 1 ) {
+			uasort( $modules, array( $this, 'sort_modules_by_position_only' ) );
+			return $this->sort_modules_by_parent_and_child( $modules );
+		}
+
+		return $modules;
 	}
 
 	/**
