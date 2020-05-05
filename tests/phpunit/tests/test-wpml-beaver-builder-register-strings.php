@@ -283,6 +283,8 @@ class Test_WPML_Beaver_Builder_Register_Stings extends WPML_PB_TestCase2 {
 		              ->with( $beaver_builder_field_data )
 		              ->willReturn( $beaver_builder_field_data );
 
+		$data_settings->method( 'is_handling_post' )->willReturn( true );
+
 		return $data_settings;
 	}
 
