@@ -111,4 +111,51 @@ class Test_WPML_Beaver_Builder_Translatable_Nodes extends OTGS_TestCase {
 		$this->assertEquals( $translation, $settings->text );
 	}
 
+	/**
+	 * @group wpmlcore-7565
+	 */
+	public function test_update_with_module_from_config() {
+		$nodeId           = '1a2b3c4d';
+		$type             = 'slides';
+		$itemsField       = 'slide_items';
+		$fieldToTranslate = 'title';
+		$original         = 'The original text';
+		$translation      = 'The text translation';
+
+		$settings    = (object) [
+			'type'      => $type,
+			$itemsField => [
+				(object) [ $fieldToTranslate => $original ],
+			],
+		];
+
+		$config = [
+			$type => [
+				'conditions'     => [ 'type' => $type ],
+				'fields'         => [],
+				'fields_in_item' => [
+					$itemsField => [
+						[
+							'field'       => $fieldToTranslate,
+							'type'        => 'The slide text',
+							'editor_type' => 'LINE',
+						],
+					],
+				],
+			],
+		];
+
+		$stringName = md5( $original ) . '-' . $fieldToTranslate . '-' . $nodeId;
+
+		$string = new WPML_PB_String( $translation, $stringName, 'anything', 'anything' );
+
+		\WP_Mock::onFilter( 'wpml_beaver_builder_modules_to_translate' )
+			->with( WPML_Beaver_Builder_Translatable_Nodes::get_nodes_to_translate() )
+			->reply( $config );
+
+		$subject  = new WPML_Beaver_Builder_Translatable_Nodes();
+		$settings = $subject->update( $nodeId, $settings, $string );
+
+		$this->assertEquals( $translation, $settings->{$itemsField}[0]->$fieldToTranslate );
+	}
 }
