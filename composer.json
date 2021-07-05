@@ -33,6 +33,8 @@
     "otgs/unit-tests-framework": "~1.2.0",
     "wpml/page-builders": "dev-develop",
     "wpml/collect": "dev-wpml-collect-rename",
-    "wpml/fp": "^0.1.2"
+    "wpml/fp": "^0.1.2",
+    "wpml/wp": "dev-develop",
+    "composer/composer": "^1.10"
   }
 }

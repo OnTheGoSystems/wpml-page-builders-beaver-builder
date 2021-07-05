@@ -12,6 +12,7 @@ class WPML_Beaver_Builder_Integration_Factory {
 				'WPML_Beaver_Builder_Media_Hooks_Factory',
 				\WPML\PB\BeaverBuilder\TranslationJob\Hooks::class,
 				\WPML\PB\BeaverBuilder\Config\Factory::class,
+				\WPML\PB\BeaverBuilder\Hooks\Editor::class,
 			)
 		);
 
